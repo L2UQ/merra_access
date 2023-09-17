@@ -20,16 +20,16 @@ sstr = 'JJA'
 
 print(totdy)
 
-dtdr = '/Users/jhobbs/Documents/AIST16_UQ/Data/MERRA/Diurnal_Data'
+dtdr = './Diurnal_Data'
 
 # AIRS/SARTA levels
-rnm = '/Users/jhobbs/Documents/AIST16_UQ/Data/AIRS/AIRS_Levels_Quantiles.nc'
+rnm = '../Data/AIRS/AIRS_Levels_Quantiles.nc'
 f = Dataset(rnm,'r')
 airs_sarta_levs = f.variables['level'][:]
 f.close()
 
 # Static MERRA
-rnm = '/Users/jhobbs/Documents/AIST16_UQ/Data/MERRA/MERRA2_101.const_2d_ctm_Nx.00000000.nc4'
+rnm = '../Data/MERRA/MERRA2_101.const_2d_ctm_Nx.00000000.nc4'
 f = Dataset(rnm,'r')
 lon = f.variables['lon'][:]
 lat = f.variables['lon'][:]
@@ -37,7 +37,7 @@ frlnd = f.variables['FRLAND'][0,:,:]
 f.close()
 
 # CONUS Mask
-rnm = '/Users/jhobbs/Documents/AIST16_UQ/Data/MERRA/merra2_NCA_mask.nc'
+rnm = '../Data/MERRA/merra2_NCA_mask.nc'
 f = Dataset(rnm,'r')
 lonmsk = f.variables['lon'][:]
 latmsk = f.variables['lat'][:]
@@ -121,7 +121,7 @@ for t1 in range(0,totdy):
 # Static fields/masks
 
 # Output
-outdr = '/Users/jhobbs/Documents/AIST16_UQ/Data/MERRA/CONUS_Output'
+outdr = '../Data/MERRA/CONUS_Output'
 outnm = '%s/interpolated_merra2_cloud_slab_%04d_%s_CONUS_NCA_%02dUTC.nc' % (outdr,dst.year,sstr,hrs)
 
 fout = Dataset(outnm,'w')
